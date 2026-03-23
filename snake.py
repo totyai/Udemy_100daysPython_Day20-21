@@ -6,6 +6,10 @@ This file will contain the Snake's appearance and movement
 
 #Constants
 MOVE_DISTANCE = 20
+UP = 90
+DOWN = 270
+LEFT = 180
+RIGHT = 0
 
 class Snake:
     def new_snake_body(self, xCoord,yCoord):
@@ -26,20 +30,24 @@ class Snake:
 
     #Changing snake movement
     def up(self):
-        self.snakeBody[0].setheading(90)
+        if self.head.heading() != DOWN:
+            self.head.setheading(UP)
     def down(self):
-        self.snakeBody[0].setheading(270)
+        if self.head.heading() != UP:
+            self.head.setheading(DOWN)
     def left(self):
-        self.snakeBody[0].setheading(180)
+        if self.head.heading() != RIGHT:
+            self.head.setheading(LEFT)
     def right(self):
-        self.snakeBody[0].setheading(0)
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
 
 
     def move(self):
         #self.screen.update()
         #time.sleep(0.1)
         #Move the snakes
-        self.snakeBody[0].forward(MOVE_DISTANCE)
+        self.head.forward(MOVE_DISTANCE)
         #self.snake.snakeBody[0].left(MOVE_DISTANCE)
 
         for bodypart_num in range(len(self.snakeBody)-1,0,-1):
@@ -57,5 +65,6 @@ class Snake:
         """
         self.snakeBody = []
         self.initialization()
+        self.head = self.snakeBody[0]
 
         #self.screen.exitonclick() # - TODO Issue is here. While the creation is correct, it never escaptes from this step forward to the move
