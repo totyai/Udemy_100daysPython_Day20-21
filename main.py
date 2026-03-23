@@ -1,5 +1,6 @@
-from turtle import Screen, Turtle
+from turtle import Screen
 from snake import Snake
+from food import Food
 import time
 
 # TODO - Init
@@ -26,9 +27,6 @@ def new_snake_body(xCoord,yCoord):
 """
 game_is_on = True
 
-#TODO - Create snake food
-
-#TODO - Detect collision wiht food
 
 #TODO - Create scoreboard
 
@@ -40,6 +38,8 @@ game_is_on = True
 def main():
     #initite the Snake
     snake = Snake()
+    #TODO - Create snake food
+    food = Food()
 
     screen.listen() # To enable keystroke listening
 
@@ -79,6 +79,8 @@ def main():
         time.sleep(0.1)
         screen.update()
         #screen.exitonclick()
+        
+        #TODO - Detect collision wiht food
         
     
     #Moving to class
