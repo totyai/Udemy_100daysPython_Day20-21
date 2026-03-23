@@ -3,15 +3,14 @@ from snake import Snake
 import time
 
 # TODO - Init
-"""
-Moving to class
+
+#Moving to class
 screen = Screen()
 screen.setup(height=600,width=600)
 screen.bgcolor("black")
 screen.title("Snake")
 screen.tracer(0)
-snakeBody=[]
-"""
+#snakeBody=[]
 
 #TODO - Create snake body
 """
@@ -41,6 +40,14 @@ game_is_on = True
 def main():
     #initite the Snake
     snake = Snake()
+
+    screen.listen() # To enable keystroke listening
+
+    #Calling in relevant fucntions from snake class
+    screen.onkey(snake.up,"Up")
+    screen.onkey(snake.down, "Down")
+    screen.onkey(snake.left, "Left")
+    screen.onkey(snake.right, "Right")
     """
     Moving to class
 
@@ -67,12 +74,17 @@ def main():
 
          """
        # To get a smooth update on the screen
+        screen.update()
         snake.move()
+        time.sleep(0.1)
+        screen.update()
+        #screen.exitonclick()
         
-    """
-    Moving to class
+    
+    #Moving to class
     screen.exitonclick()
-    """
+    
+
 
 if __name__ == "__main__":
     main()

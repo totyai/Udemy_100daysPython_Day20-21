@@ -1,4 +1,5 @@
 from turtle import Turtle, Screen
+import time
 """
 This file will contain the Snake's appearance and movement 
 """
@@ -23,11 +24,20 @@ class Snake:
             print(lastBody.pos())
             self.snakeBody.append(self.new_snake_body(xCoord=lastBody.pos()[0],yCoord=lastBody.pos()[1]))
 
+    #Changing snake movement
+    def up(self):
+        self.snakeBody[0].setheading(90)
+    def down(self):
+        self.snakeBody[0].setheading(270)
+    def left(self):
+        self.snakeBody[0].setheading(180)
+    def right(self):
+        self.snakeBody[0].setheading(0)
 
 
     def move(self):
         #self.screen.update()
-        #self.time.sleep(0.1)
+        #time.sleep(0.1)
         #Move the snakes
         self.snakeBody[0].forward(MOVE_DISTANCE)
         #self.snake.snakeBody[0].left(MOVE_DISTANCE)
@@ -38,13 +48,14 @@ class Snake:
 
 
     def __init__(self):
+        """
         self.screen = Screen()
         self.screen.setup(height=600,width=600)
         self.screen.bgcolor("black")
         self.screen.title("Snake")
-        #self.screen.tracer(0)
+        self.screen.tracer(0)
+        """
         self.snakeBody = []
         self.initialization()
 
-        self.screen.exitonclick() # - TODO Issue is here. While the creation is correct, it never escaptes from this step forward to the move
-        print("We came here.")
+        #self.screen.exitonclick() # - TODO Issue is here. While the creation is correct, it never escaptes from this step forward to the move
