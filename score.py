@@ -21,3 +21,7 @@ class Score(Turtle):
         self.clear()
         self.points += 1
         self.writescore()
+
+    def gameover(self, obj):
+        self.goto(0,0)
+        self.write(f"You have hit the {obj}, game over!", move=False, align="center", font=("Arial", 24, "normal"))

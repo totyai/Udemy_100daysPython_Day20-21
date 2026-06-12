@@ -26,7 +26,7 @@ def new_snake_body(xCoord,yCoord):
     body.goto(xCoord-20,yCoord)
     snakeBody.append(body)
 """
-game_is_on = True
+
 
 
 #TODO - Create scoreboard
@@ -37,6 +37,7 @@ game_is_on = True
 
 
 def main():
+    game_is_on = True
     #initite the Snake
     snake = Snake()
     #TODO - Create snake food
@@ -89,6 +90,11 @@ def main():
         if snake.head.distance(food) < 15:
             score.pointgained()
             food.gotostart()
+
+        #TODO - Detect collision with wall
+        if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+            score.gameover("wall")
+            game_is_on = False
         
     
     #Moving to class
