@@ -81,6 +81,8 @@ def main():
         #screen.exitonclick()
         
         #TODO - Detect collision wiht food
+        if snake.head.distance(food) < 15:
+            food.gotostart()
         
     
     #Moving to class
