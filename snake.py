@@ -13,6 +13,7 @@ RIGHT = 0
 
 class Snake:
     def new_snake_body(self, xCoord,yCoord):
+        """Adding new Turtle object"""
         body = Turtle()
         body.color("white")
         body.shape("square")
@@ -21,6 +22,7 @@ class Snake:
         return body
 
     def initialization(self,iteration,xCoord,yCoord):
+        """Increase snake size"""
         self.snakeBody.append(self.new_snake_body(xCoord,yCoord))
         for _ in range(iteration):
             bodyLen = len(self.snakeBody)

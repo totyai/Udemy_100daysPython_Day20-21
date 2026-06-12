@@ -90,12 +90,15 @@ def main():
         if snake.head.distance(food) < 15:
             score.pointgained()
             food.gotostart()
+            #Dispite the name, the following method increase the size of the snake
             snake.initialization(1,snake.lastBody.pos()[0],snake.lastBody.pos()[1])
 
         #TODO - Detect collision with wall
         if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
             score.gameover("wall")
             game_is_on = False
+        
+        #TODO - Detect collision with tail
         
     
     #Moving to class
