@@ -20,13 +20,13 @@ class Snake:
         body.goto(xCoord-20,yCoord)
         return body
 
-    def initialization(self):
-        self.snakeBody.append(self.new_snake_body(xCoord=10,yCoord=0))
-        for _ in range(2):
+    def initialization(self,iteration,xCoord,yCoord):
+        self.snakeBody.append(self.new_snake_body(xCoord,yCoord))
+        for _ in range(iteration):
             bodyLen = len(self.snakeBody)
-            lastBody = self.snakeBody[bodyLen-1]
-            print(lastBody.pos())
-            self.snakeBody.append(self.new_snake_body(xCoord=lastBody.pos()[0],yCoord=lastBody.pos()[1]))
+            self.lastBody = self.snakeBody[bodyLen-1]
+            #print(self.lastBody.pos())
+            self.snakeBody.append(self.new_snake_body(xCoord=self.lastBody.pos()[0],yCoord=self.lastBody.pos()[1]))
 
     #Changing snake movement
     def up(self):
@@ -64,7 +64,7 @@ class Snake:
         self.screen.tracer(0)
         """
         self.snakeBody = []
-        self.initialization()
+        self.initialization(iteration=2,xCoord=10,yCoord=0)
         self.head = self.snakeBody[0]
 
         #self.screen.exitonclick() # - TODO Issue is here. While the creation is correct, it never escaptes from this step forward to the move

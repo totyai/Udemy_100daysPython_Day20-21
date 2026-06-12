@@ -90,6 +90,7 @@ def main():
         if snake.head.distance(food) < 15:
             score.pointgained()
             food.gotostart()
+            snake.initialization(1,snake.lastBody.pos()[0],snake.lastBody.pos()[1])
 
         #TODO - Detect collision with wall
         if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
