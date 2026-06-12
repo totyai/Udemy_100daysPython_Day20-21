@@ -1,5 +1,6 @@
 from turtle import Screen
 from snake import Snake
+from score import Score
 from food import Food
 import time
 
@@ -40,6 +41,8 @@ def main():
     snake = Snake()
     #TODO - Create snake food
     food = Food()
+    #Create Score
+    score = Score()
 
     screen.listen() # To enable keystroke listening
 
@@ -73,6 +76,8 @@ def main():
         snake.snakeBody[0].left(20)
 
          """
+        
+        # Part to manage teh snake
        # To get a smooth update on the screen
         screen.update()
         snake.move()
@@ -82,6 +87,7 @@ def main():
         
         #TODO - Detect collision wiht food
         if snake.head.distance(food) < 15:
+            score.pointgained()
             food.gotostart()
         
     
